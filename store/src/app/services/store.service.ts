@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
 import { Product } from "../models/product.model"
 
+//API for products
 const STORE_URL = "https://fakestoreapi.com"
 
 @Injectable({
@@ -11,6 +12,7 @@ const STORE_URL = "https://fakestoreapi.com"
 export class StoreService {
   constructor(private httpClient: HttpClient) {}
 
+  //get product
   getAllProducts(
     limit = "12",
     sort = "desc",
@@ -23,6 +25,7 @@ export class StoreService {
     )
   }
 
+  // get category product
   getAllCategory(): Observable<Array<string>> {
     return this.httpClient.get<Array<string>>(
       `${STORE_URL}/products/categories`
